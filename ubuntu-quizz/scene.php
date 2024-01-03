@@ -9,9 +9,14 @@
 
     #echo($quant); die("testado!!!");
 
+    // Generating rand number
+    $aleatorio = (rand(4,$quant)-3);
+    echo $aleatorio;
 
     $resultado = $bd->select("SELECT R.id, P.pergunta, R.resposta FROM tb_perguntas AS P 
-                              INNER JOIN tb_respostas AS R ON R.pergunta_id = P.id  WHERE P.nivel = 1 ORDER BY RAND()");
+                              INNER JOIN tb_respostas AS R ON R.pergunta_id = '".$aleatorio."'  
+                              INNER JOIN tb_niveis AS N ON P.nivel_id = N.id
+                              WHERE P.id = '".$aleatorio."' AND N.dificuldade = 1 ORDER BY RAND()");
 
     #echo "<pre>";
     #print_r($resultado);
