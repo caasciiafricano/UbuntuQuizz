@@ -1,3 +1,8 @@
+<?php
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,25 +39,33 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 mark-button text-center" id="div1" onmousemove="mark_select('div1')" onmouseleave="desmark_select('div1')">
-                                    <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <a href="#">
+                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    </a>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div2" onmousemove="mark_select('div2')" onmouseleave="desmark_select('div2')">
-                                    <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <a href="#">
+                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    </a>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div3" onmousemove="mark_select('div3')" onmouseleave="desmark_select('div3')">
-                                    <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <a href="#">
+                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    </a>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div4" onmousemove="mark_select('div4')" onmouseleave="desmark_select('div4')">
-                                    <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <a href="#">
+                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    </a>
                                 </div>
                             </div>
                             <hr>
@@ -68,19 +81,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    
-        function mark_select(id_div){
+        function mark_select(id_div) {
             let div = document.getElementById(id_div)
             div.style.backgroundColor = "red"
             div.style.cursor = "pointer"
         }
 
-        function desmark_select(id_div){
+        function desmark_select(id_div) {
             let div = document.getElementById(id_div)
             div.style.backgroundColor = "#fff"
         }
 
-        function end_game(){
+        function end_game() {
             window.document.location.href = "index.php"
         }
     </script>
