@@ -1,6 +1,20 @@
 <?php
+    require_once "lib/KaasConnectionDB/config/config.php";
+    require_once "lib/KaasConnectionDB/lib/kaasConnectionDB.php";
     
+    $bd = new KaasConnectionDB();
 
+    // Recovering the data length
+    $quant = $bd->select("SELECT COUNT(*) AS tamanho FROM tb_perguntas;")[0]['tamanho'];
+
+    #echo($quant); die("testado!!!");
+
+
+    $resultado = $bd->select("SELECT P.pergunta, R.resposta FROM tb_perguntas AS P 
+                              INNER JOIN tb_respostas AS R ON R.pergunta_id = P.id  WHERE P.nivel = 1 ORDER BY RAND()");
+
+    #echo "<pre>";
+    #print_r($resultado);
 ?>
 
 <!DOCTYPE html>
@@ -33,14 +47,14 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h4 class="mb-0 text-center p-3">Qual o significado da sigla PHP</h4>
+                                    <h4 class="mb-0 text-center p-3"><?php echo $resultado[0]['pergunta'] ?></h4>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 mark-button text-center" id="div1" onmousemove="mark_select('div1')" onmouseleave="desmark_select('div1')">
                                     <a href="#">
-                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                        <h6 class="mb-0"><?php echo $resultado[0]['resposta'] ?></h6>
                                     </a>
                                 </div>
                             </div>
@@ -48,7 +62,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div2" onmousemove="mark_select('div2')" onmouseleave="desmark_select('div2')">
                                     <a href="#">
-                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <h6 class="mb-0"><?php echo $resultado[1]['resposta'] ?></h6>
                                     </a>
                                 </div>
                             </div>
@@ -56,7 +70,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div3" onmousemove="mark_select('div3')" onmouseleave="desmark_select('div3')">
                                     <a href="#">
-                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <h6 class="mb-0"><?php echo $resultado[2]['resposta'] ?></h6>
                                     </a>
                                 </div>
                             </div>
@@ -64,7 +78,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div4" onmousemove="mark_select('div4')" onmouseleave="desmark_select('div4')">
                                     <a href="#">
-                                        <h6 class="mb-0">PHP Hypertext-Processor.</h6>
+                                    <h6 class="mb-0"><?php echo $resultado[3]['resposta'] ?></h6>
                                     </a>
                                 </div>
                             </div>
