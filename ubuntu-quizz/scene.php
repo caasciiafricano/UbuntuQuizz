@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
 
-    <title>profile with data and skills - Bootdey.com</title>
+    <title>Game - UbuntuQuizz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css">
@@ -17,7 +17,7 @@
 
             <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <div class="col-md-12 text-center mb-2">
-                    <button class="btn-danger">End Game</button>
+                    <button class="btn-danger" onclick="end_game()">End Game</button>
                 </div>
             </nav>
 
@@ -78,6 +78,10 @@
         function desmark_select(id_div){
             let div = document.getElementById(id_div)
             div.style.backgroundColor = "#fff"
+        }
+
+        function end_game(){
+            window.document.location.href = "index.php"
         }
     </script>
 </body>
