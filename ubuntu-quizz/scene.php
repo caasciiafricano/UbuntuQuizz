@@ -11,8 +11,9 @@
 
     // Generating rand number
     $aleatorio = (rand(1,$quant));
-    echo $aleatorio;
+    #echo $aleatorio;
 
+    // Fecthing all a questions and your respectives responses.
     $resultado = $bd->select("SELECT P.id id_pergunta, R.id id_resposta, P.pergunta, R.resposta FROM tb_perguntas AS P 
                               INNER JOIN tb_respostas AS R ON R.pergunta_id = '".$aleatorio."'  
                               INNER JOIN tb_niveis AS N ON P.nivel_id = N.id
@@ -36,6 +37,15 @@
 </head>
 
 <body>
+    <?php
+        // Check response coming from the check_response.php file.
+        if(isset($_GET['estado']) == "errado"){
+            echo '<script>window.alert("Você errou!!!")</script>';
+            echo "<script>window.document.location.href = 'index.php'</script>";
+            return;
+        }
+    ?>
+
     <div class="container">
         <div class="main-body">
 
@@ -58,7 +68,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 mark-button text-center" id="div1" onmousemove="mark_select('div1')" onmouseleave="desmark_select('div1')">
-                                    <a href="check_response.php?pergunta_gerada=<?= $resultado[0]["id_pergunta"]?>&respota_escolhida=<?= $resultado[0]['id_resposta'] ?>">
+                                    <a href="check_response.php?pergunta_gerada=<?= $resultado[0]["id_pergunta"]?>&resposta_escolhida=<?= $resultado[0]['id_resposta'] ?>">
                                         <h6 class="mb-0"><?php echo $resultado[0]['resposta'] ?></h6>
                                     </a>
                                 </div>
@@ -66,7 +76,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div2" onmousemove="mark_select('div2')" onmouseleave="desmark_select('div2')">
-                                    <a href="check_response.php?respota_escolhida=<?= $resultado[1]['id_resposta'] ?>">
+                                    <a href="check_response.php?pergunta_gerada=<?= $resultado[0]["id_pergunta"]?>&resposta_escolhida=<?= $resultado[1]['id_resposta'] ?>">
                                     <h6 class="mb-0"><?php echo $resultado[1]['resposta'] ?></h6>
                                     </a>
                                 </div>
@@ -74,7 +84,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div3" onmousemove="mark_select('div3')" onmouseleave="desmark_select('div3')">
-                                    <a href="check_response.php?respota_escolhida=<?= $resultado[2]['id_resposta'] ?>">
+                                    <a href="check_response.php?pergunta_gerada=<?= $resultado[0]["id_pergunta"]?>&respota_escolhida=<?= $resultado[2]['id_resposta'] ?>">
                                     <h6 class="mb-0"><?php echo $resultado[2]['resposta'] ?></h6>
                                     </a>
                                 </div>
@@ -82,7 +92,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-center" id="div4" onmousemove="mark_select('div4')" onmouseleave="desmark_select('div4')">
-                                    <a href="check_response.php?respota_escolhida=<?= $resultado[3]['id_resposta'] ?>">
+                                    <a href="check_response.php?pergunta_gerada=<?= $resultado[0]["id_pergunta"]?>&resposta_escolhida=<?= $resultado[3]['id_resposta'] ?>">
                                     <h6 class="mb-0"><?php echo $resultado[3]['resposta'] ?></h6>
                                     </a>
                                 </div>
