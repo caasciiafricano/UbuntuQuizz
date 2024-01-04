@@ -2,8 +2,8 @@
 require_once "lib/KaasConnectionDB/config/config.php";
 require_once "lib/KaasConnectionDB/lib/kaasConnectionDB.php";
 
-echo "<pre>";
-print_r($_GET);
+#   echo "<pre>";
+#print_r($_GET);
 
 $bd = new KaasConnectionDB();
 
@@ -38,6 +38,8 @@ if ($estado != "correcto") {
     return;
 }
 
+echo '<script>window.alert("Você acertou!!!")</script>';
 // if response is right
-header("Location: scene.php");
+#header("Location: scene.php");
+echo "<script>window.document.location.href= 'scene.php'</script>";
 
