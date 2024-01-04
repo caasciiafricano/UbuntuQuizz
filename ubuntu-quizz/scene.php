@@ -10,7 +10,7 @@
     #echo($quant); die("testado!!!");
 
     // Generating rand number
-    $aleatorio = (rand(4,$quant))-3;
+    $aleatorio = (rand(1,$quant));
     echo $aleatorio;
 
     $resultado = $bd->select("SELECT R.id, P.pergunta, R.resposta FROM tb_perguntas AS P 
